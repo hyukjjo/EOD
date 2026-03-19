@@ -238,38 +238,13 @@ public class Monster : PoolObject, IDamageable
         _animator.Play("Attack");
     }
 
+    private void StopAttack()
+    {
+        ReadyToAttack = false;
+    }
+
     public void CheckCloseTurret()
     {
-        //Turret[] tems = FindObjectsOfType<Turret>();
-
-        //List<Turret> turrets = new List<Turret>();
-
-        //for (int i = 0; i < tems.Length; i++)
-        //{
-        //    if (tems[i]._isActive)
-        //        turrets.Add(tems[i]);
-        //}
-
-        //if (turrets.Count > 0)
-        //{
-        //    int num = 0;
-        //    float dis = Vector3.Distance(turrets[0].transform.position, transform.position);
-
-        //    for (int i = 1; i < turrets.Count; i++)
-        //    {
-        //        float tem = Vector3.Distance(turrets[i].transform.position, transform.position);
-
-        //        if (dis > tem)
-        //            num = i;
-        //    }
-
-        //    SetMoveTarget(turrets[num].transform);
-        //}
-        //else if (turrets.Count == 0)
-        //{
-        //    SetMoveTarget(GameManager.Instance.GetPlayer().transform);
-        //}
-
         NewTurret[] tems = FindObjectsOfType<NewTurret>();
 
         List<NewTurret> turrets = new List<NewTurret>();
@@ -325,10 +300,7 @@ public class Monster : PoolObject, IDamageable
         }
     }
 
-    private void StopAttack()
-    {
-        ReadyToAttack = false;
-    }
+
 
     private IEnumerator DeadByBodyShot()
     {

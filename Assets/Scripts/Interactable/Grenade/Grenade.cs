@@ -41,7 +41,7 @@ public class Grenade : MonoBehaviour, IDamageable
         canActivate = true;
         meshLightActivation.SetActive(true);
         activationSound.Play();
-        Destroy(GetComponent<UseInventory>());
+        Destroy(GetComponent<InventoryItem>());
 
         if (startTimerAfterActivation)
             Invoke(nameof(TriggerGrenade), detonationTime);
@@ -53,7 +53,7 @@ public class Grenade : MonoBehaviour, IDamageable
         if (canActivate && !startTimerAfterActivation)
         {
             GetComponent<Rigidbody>().isKinematic = false;
-            Destroy(GetComponent<UseInventory>());
+            Destroy(GetComponent<InventoryItem>());
             Invoke(nameof(TriggerGrenade), detonationTime);
         }
 

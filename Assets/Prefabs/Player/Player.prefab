@@ -3125,12 +3125,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 250
   Spd: 0
-  _minimapIcon: {fileID: 6439990385938347720}
+  MinimapIcon: {fileID: 6439990385938347720}
   PlayerGold: 0
   _hitEffect: {fileID: 8360648392057905922}
-  _BloodImage: {fileID: 21300000, guid: 93a8338428a39db42a8cdbe332533c18, type: 3}
-  _BloodLeftImage: {fileID: 21300000, guid: 4ad05b01af3cee4479e60f42568b91f3, type: 3}
-  _BloodRightImage: {fileID: 21300000, guid: ba23579e3bd514844a99dc169622b95e, type: 3}
+  _bloodImage: {fileID: 21300000, guid: 93a8338428a39db42a8cdbe332533c18, type: 3}
+  _bloodLeftImage: {fileID: 21300000, guid: 4ad05b01af3cee4479e60f42568b91f3, type: 3}
+  _bloodRightImage: {fileID: 21300000, guid: ba23579e3bd514844a99dc169622b95e, type: 3}
   _fadeEffect: {fileID: 1501981281463269466}
   _leftInteractor: {fileID: 3221813344174158854}
   _rightInteractor: {fileID: 6613709272555394409}
@@ -12038,7 +12038,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5, y: 1, z: 0.4}
+  m_Size: {x: 0.5, y: 1, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7313270085763190834
 MonoBehaviour:
@@ -49208,7 +49208,7 @@ Transform:
   - {fileID: 4746269757995108675}
   - {fileID: 1223123917259695447}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8966563306529728335
 GameObject:

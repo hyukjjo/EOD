@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class UseInventory : MonoBehaviour
+public class InventoryItem : MonoBehaviour
 {
     private XRGrabInteractable _interactable;
     private Inventory inventory = null;

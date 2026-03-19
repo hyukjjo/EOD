@@ -1,18 +1,22 @@
+using UnityEngine;
+
 public class PurchaseItem : Purchase
 {
-    private Inventory inventory;
+    [SerializeField]
+    private Inventory _inventory;
 
     protected override void Start()
     {
         base.Start();
-
-        inventory = FindObjectOfType<Inventory>(true);
+        
+        if(_inventory == null)
+            _inventory = FindObjectOfType<Inventory>(true);
     }
 
     public override void Buy()
     {
         base.Buy();
 
-        inventory.ItemInSlot(this);
+        _inventory.ItemInSlot(this);
     }
 }

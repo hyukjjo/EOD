@@ -80,7 +80,7 @@ public class Turret : MonsterTarget
 
             if (bettery)
             {
-                UseInventory betteryinventory = collision.collider.GetComponent<UseInventory>();
+                InventoryItem betteryinventory = collision.collider.GetComponent<InventoryItem>();
 
                 if (bettery.IsGrab && !betteryinventory.IsInventoryItem)
                 {
@@ -101,7 +101,7 @@ public class Turret : MonsterTarget
 
             if (bettery)
             {
-                UseInventory betteryinventory = collision.collider.GetComponent<UseInventory>();
+                InventoryItem betteryinventory = collision.collider.GetComponent<InventoryItem>();
 
                 if (!bettery.IsGrab && !betteryinventory.IsInventoryItem)
                 {
@@ -125,7 +125,7 @@ public class Turret : MonsterTarget
 
             if (bettery)
             {
-                UseInventory betteryinventory = collision.collider.GetComponent<UseInventory>();
+                InventoryItem betteryinventory = collision.collider.GetComponent<InventoryItem>();
 
                 if (bettery.IsGrab && !betteryinventory.IsInventoryItem)
                     _DummyCombineBettery.SetActive(false);

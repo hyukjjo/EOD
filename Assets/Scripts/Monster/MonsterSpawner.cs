@@ -39,12 +39,6 @@ public class MonsterSpawner : Singleton<MonsterSpawner>
         GameManager.Instance.RoundLevelUp += SpawnLevelUp;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void InitSpawnMonster()
     {
         SetSpawner();
@@ -82,20 +76,20 @@ public class MonsterSpawner : Singleton<MonsterSpawner>
         monster.SetMoveTarget(GameManager.Instance.GetPlayer().transform);
     }
 
-    private void StopSpawnMonster()
-    {
-        if(_spawnMonsterCoroutine != null)
-        {
-            StopCoroutine(_spawnMonsterCoroutine);
-        }
-    }
-
     private IEnumerator SpawnMonsterCoroutine()
     {
         while(true)
         {
             SpawnMonster(_normalMonsterName);
             yield return new WaitForSeconds(_spawnDelay);
+        }
+    }
+
+    private void StopSpawnMonster()
+    {
+        if (_spawnMonsterCoroutine != null)
+        {
+            StopCoroutine(_spawnMonsterCoroutine);
         }
     }
 

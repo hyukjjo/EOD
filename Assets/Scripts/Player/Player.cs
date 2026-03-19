@@ -10,18 +10,18 @@ using UnityEngine.XR.Interaction.Toolkit.Inputs;
 public class Player : MonsterTarget
 {
     public float Spd;
-    public Transform _minimapIcon;
+    public Transform MinimapIcon;
     public int PlayerGold;
 
     [Header("HIT EFFECT")]
     [SerializeField]
     private Image _hitEffect;
     [SerializeField]
-    private Sprite _BloodImage;
+    private Sprite _bloodImage;
     [SerializeField]
-    private Sprite _BloodLeftImage;
+    private Sprite _bloodLeftImage;
     [SerializeField]
-    private Sprite _BloodRightImage;
+    private Sprite _bloodRightImage;
     [SerializeField]
     private Image _fadeEffect;
     [Header("PLAYER GUN GRAB STATE")]
@@ -51,12 +51,14 @@ public class Player : MonsterTarget
 
     void Start()
     {
-        _interactionManager = FindObjectOfType<XRInteractionManager>();
-        _directInteractors = FindObjectsOfType<XRDirectInteractor>();
+        if(_interactionManager == null)
+            _interactionManager = FindObjectOfType<XRInteractionManager>();
+        if(_directInteractors == null)
+            _directInteractors = FindObjectsOfType<XRDirectInteractor>();
 
         _hitEffect.color = _clearColor;
-        leftHandMoveAction.GetInputAction().performed += Player_performed;
-        leftHandMoveAction.GetInputAction().canceled += Player_canceled;
+        leftHandMoveAction.GetInputAction().performed += PlayerPerformed;
+        leftHandMoveAction.GetInputAction().canceled += PlayerCanceled;
 
         GameManager.Instance.PlayerDead += PlayerDead;
         GameManager.Instance.MaintenanceStart += () =>
@@ -81,12 +83,12 @@ public class Player : MonsterTarget
         };
     }
 
-    private void Player_canceled(InputAction.CallbackContext obj)
+    private void PlayerCanceled(InputAction.CallbackContext obj)
     {
         ActiveFootSound(false);
     }
 
-    private void Player_performed(InputAction.CallbackContext obj)
+    private void PlayerPerformed(InputAction.CallbackContext obj)
     {
         ActiveFootSound(true);
     }
@@ -230,8 +232,8 @@ public class Player : MonsterTarget
 
     private void OnDestroy()
     {
-        leftHandMoveAction.GetInputAction().performed -= Player_performed;
-        leftHandMoveAction.GetInputAction().canceled -= Player_canceled;
+        leftHandMoveAction.GetInputAction().performed -= PlayerPerformed;
+        leftHandMoveAction.GetInputAction().canceled -= PlayerCanceled;
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -281,17 +283,17 @@ public class Player : MonsterTarget
 
         if (angle < 60)
         {
-            _hitEffect.sprite = _BloodImage;
+            _hitEffect.sprite = _bloodImage;
         }
         else
         {
             if (dot > 0)
             {
-                _hitEffect.sprite = _BloodLeftImage;
+                _hitEffect.sprite = _bloodLeftImage;
             }
             else
             {
-                _hitEffect.sprite = _BloodRightImage;
+                _hitEffect.sprite = _bloodRightImage;
             }
         }
     }

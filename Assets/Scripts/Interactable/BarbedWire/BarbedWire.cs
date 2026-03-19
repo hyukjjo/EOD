@@ -151,7 +151,7 @@ public class BarbedWire : MonoBehaviour
 
             if (bettery)
             {
-                UseInventory betteryinventory = other.GetComponent<UseInventory>();
+                InventoryItem betteryinventory = other.GetComponent<InventoryItem>();
 
                 if (bettery.IsGrab && !betteryinventory.IsInventoryItem)
                 {
@@ -192,7 +192,7 @@ public class BarbedWire : MonoBehaviour
 
             if (bettery)
             {
-                UseInventory betteryinventory = other.GetComponent<UseInventory>();
+                InventoryItem betteryinventory = other.GetComponent<InventoryItem>();
 
                 if (!bettery.IsGrab && !betteryinventory.IsInventoryItem)
                 {
@@ -245,7 +245,7 @@ public class BarbedWire : MonoBehaviour
 
             if (bettery)
             {
-                UseInventory betteryinventory = other.GetComponent<UseInventory>();
+                InventoryItem betteryinventory = other.GetComponent<InventoryItem>();
 
                 if (bettery.IsGrab && !betteryinventory.IsInventoryItem)
                     _DummyCombineBettery.SetActive(false);
@@ -276,11 +276,11 @@ public class BarbedWire : MonoBehaviour
 
     private void Active()
     {
-        if (GetComponent<UseInventory>())
+        if (GetComponent<InventoryItem>())
         {
             _isActive = true;
             _modelBulid.GetComponent<Collider>().isTrigger = true;            
-            Destroy(GetComponent<UseInventory>());
+            Destroy(GetComponent<InventoryItem>());
         }
     }
 

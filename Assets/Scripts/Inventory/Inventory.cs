@@ -60,8 +60,8 @@ public class Inventory : MonoBehaviour
         if (slot)
         {
             item.transform.SetParent(slot.Holder);
-            item.GetComponent<UseInventory>().BuyInsertItem(slot);
-            slot.InsertItem(item.GetComponent<XRGrabInteractable>(), item.GetComponent<UseInventory>().GetInventoryRotation());
+            item.GetComponent<InventoryItem>().BuyInsertItem(slot);
+            slot.InsertItem(item.GetComponent<XRGrabInteractable>(), item.GetComponent<InventoryItem>().GetInventoryRotation());
         }
     }
 

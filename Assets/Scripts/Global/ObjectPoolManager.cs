@@ -112,10 +112,4 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
             Destroy(po.gameObject);
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
